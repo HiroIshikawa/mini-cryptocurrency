@@ -1,6 +1,6 @@
 # Mini Cryptocurrency
 
-This project aims at building a mini cryptocurrency from the bottom up to understand underlying design and implementation of cryptocurrency. It implements some of the components we commonly see in major cryptocurrencies such as p2p network running gossip protocol for message propagations, public key cryptography for authentication, , blockchain for achieving logical ordering and validations. and consensus algorithms for the network to reach an agreement on its global state.
+This project aims at building a mini cryptocurrency from the bottom up to understand underlying design and implementation of cryptocurrency. It implements some of the components we commonly see in major cryptocurrencies such as p2p network running gossip protocol for message propagations, public key cryptography for authentication, blockchain for achieving logical ordering and validations. and consensus algorithms for the network to reach an agreement on its global state.
 
 ### Features
 
