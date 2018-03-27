@@ -35,6 +35,14 @@ class Transaction():
         self.signature = pri_key.sign(self.hash(),
                                       hashfunc=hashlib.sha1)
 
+    def serialize(self):
+        """Serialize transactions"""
+        serialized = {}
+        serialized['from'] = self.from_s
+        serialized['to'] = self.to_s
+        serialized['amount'] = str(self.amount)
+        return serialized
+
     def is_valid(self):
         """Verify the transaction with sender's sign and hash"""
         return self.from_.verify(self.signature,

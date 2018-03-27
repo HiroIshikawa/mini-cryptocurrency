@@ -33,11 +33,18 @@ class Block():
         data = (self.to_challenge()+str(self.nonce)).encode()
         return sha256(sha256(data).hexdigest().encode()).hexdigest()
 
+    def serialize_trxs(self):
+        """Serialize transactions"""
+        serialized = {}
+        for key, val in self.trxs_map.items():
+            serialized[str(key)] = val.serialize()
+        return serialized
+
     def info(self):
         """Pack block info to get rendered"""
         data = {}
         data['prev_hash'] = self.prev_hash
         data['merkleroot_hash'] = self.merkleroot_hash
         data['nonce'] = self.nonce
-        data['trxs_map'] = self.trxs_map
+        data['trxs_map'] = self.serialize_trxs()
         return data

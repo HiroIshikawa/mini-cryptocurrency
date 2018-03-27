@@ -21,6 +21,10 @@ host = config.HOST
 def index():
     """Index"""
     node_data = node.info()
+    # print(node_data)
+    # jsonified_node_data = json.dumps(node_data)
+    # print(jsonified_node_data)
+    # exit()
     return render_template('index.html', node_data=node_data)
 
 

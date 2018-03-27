@@ -131,11 +131,18 @@ class MinerNode(Node):
             print('')
             print('')
 
+    def serialize_mempool(self):
+        """Serialize mempool"""
+        serialized = []
+        for trx in self.mempool:
+            serialized.append(trx.serialize())
+        return serialized
+
     def info(self):
         """Packing data into dictionary for rendering"""
         data = {}
         data["type"] = "Miner"
         data["pub_key"] = str(self.pub_key.to_string())
-        data["mempool"] = self.mempool
+        data["mempool"] = self.serialize_mempool()
         data["blockchain"] = self.blockchain.info()
         return data
