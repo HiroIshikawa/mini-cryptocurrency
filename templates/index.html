@@ -4,16 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="refresh" content="1">
     <title>Hello Crypto-World!</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.2/react.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.2/JSXTransformer.js"></script>
 </head>
 <body>
-    <script type="text/jsx">
-        var data = {{ node_data|tojson|safe }};
-        console.log(data);
-    </script>
-    <p>Hello Crypto-World!!</p>
-    <ul>
+    <p>Hello Crypto-World</p>
+        <ul>
         <li>node type:    <br>     {{node_data.type}}</li>
         <li>pub_key:      <br>     {{node_data.pub_key}}</li>
         <li>mempool:      <br>     
