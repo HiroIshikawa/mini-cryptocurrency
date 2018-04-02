@@ -30,8 +30,9 @@ This project aims at building a mini cryptocurrency from the bottom up to unders
 Required modules are recorded in the requirements.txt file.
 As a shortcut, you can install requirements by running `pip install -r requirements.txt`.
 
-## Running the tests
+## Running the tests (currently backend only)
 
+0. Go to the backend folder
 1. Initiate the network with a miner node, which generates the genesis block and start its routine (make a transaction and do mining)
     - i.e. `python app.py 4555 '' red miner`
 2. Open your browser, go to the address running the flask app, and check the status of node
