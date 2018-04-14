@@ -23,18 +23,28 @@ host = config.HOST
 def index():
     """Index"""
     node_data = node.info()
-    # print(node_data)
-    # jsonified_node_data = json.dumps(node_data)
-    # print(jsonified_node_data)
-    # exit()
     return render_template('index.html', node_data=node_data)
 
 
-@app.route('/json/', methods=['GET'])
-def get_json():
-    """Index"""
-    node_data = node.info()
+@app.route('/json/all/', methods=['GET'])
+def get_json_all():
+    """GEt all data of the node in json"""
+    all_data = node.info()
+    return json.dumps(all_data)
+
+
+@app.route('/json/node/', methods=['GET'])
+def get_json_node():
+    """Get basic of the node in json"""
+    node_data = node.info("node")
     return json.dumps(node_data)
+
+
+@app.route('/json/mempool/', methods=['GET'])
+def get_json_mempool():
+    """Get mempool data of the node in json"""
+    mempool_data = node.info("mempool")
+    return json.dumps(mempool_data)
 
 
 @app.route('/peers/', methods=['GET'])

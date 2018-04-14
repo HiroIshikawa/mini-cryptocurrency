@@ -138,11 +138,17 @@ class MinerNode(Node):
             serialized.append(trx.serialize())
         return serialized
 
-    def info(self):
+    def info(self, kinds=None):
         """Packing data into dictionary for rendering"""
         data = {}
-        data["type"] = "Miner"
-        data["pub_key"] = str(self.pub_key.to_string())
-        data["mempool"] = self.serialize_mempool()
-        data["blockchain"] = self.blockchain.info()
+        if kinds == "node":
+            data["type"] = "Miner"
+            data["pub_key"] = str(self.pub_key.to_string())
+        elif kinds == "mempool":
+            data["mempool"] = self.serialize_mempool()
+        else:
+            data["type"] = "Miner"
+            data["pub_key"] = str(self.pub_key.to_string())
+            data["mempool"] = self.serialize_mempool()
+            data["blockchain"] = self.blockchain.info()
         return data

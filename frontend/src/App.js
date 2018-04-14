@@ -10,7 +10,7 @@ class App extends Component {
   }
 
   createMarkup() { 
-    var url = 'http://127.0.0.1:4555/json/';
+    var url = 'http://127.0.0.1:4555/json/mempool/';
     var fetched_data = ''
     axios.get(url, {
         headers: {
@@ -21,6 +21,8 @@ class App extends Component {
       .then(response => {
           fetched_data = response.data
           console.log(fetched_data);
+          // this.setState({ body: JSON.parse(fetched_data) })
+          this.setState({ body: "JSON fetched" })
       }).catch(error => {
           console.log('No');
     });
