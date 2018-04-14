@@ -6,6 +6,7 @@ from threading import Thread
 
 import jsonpickle
 from flask import Flask, render_template, request
+from flask_cors import CORS
 
 import config
 from minernode import MinerNode
@@ -14,6 +15,7 @@ from spvnode import SPVNode
 
 
 app = Flask(__name__)
+CORS(app)
 host = config.HOST
 
 
@@ -26,6 +28,13 @@ def index():
     # print(jsonified_node_data)
     # exit()
     return render_template('index.html', node_data=node_data)
+
+
+@app.route('/json/', methods=['GET'])
+def get_json():
+    """Index"""
+    node_data = node.info()
+    return json.dumps(node_data)
 
 
 @app.route('/peers/', methods=['GET'])
