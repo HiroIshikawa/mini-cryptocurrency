@@ -5,7 +5,7 @@ import axios from 'axios';
 class App extends Component {
   componentWillMount(props){
     this.setState({ showExternalHTML: false });
-    this.setState({ body: <div>Nothing loaded yet</div>})
+    this.setState({ body: "Nothing loaded yet" })
     this.toggleExternalHTML = this.toggleExternalHTML.bind(this);
   }
 
@@ -14,7 +14,7 @@ class App extends Component {
     var fetched_data = ''
     axios.get(url, {
         headers: {
-          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Origin': '*', 
         },
         mode: 'no-cors'
       })
@@ -36,7 +36,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <button onClick={this.toggleExternalHTML}>Toggle Html</button>
+        <button onClick={this.toggleExternalHTML}>Fetch Blockchain Data</button>
         {this.state.showExternalHTML ? <div>{this.state.body}</div> : null}
       </div>
     );
